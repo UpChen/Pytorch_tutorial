@@ -53,3 +53,24 @@ torch.matmul(tensor, tensor.T, out=y3)
 print("y1: ", y1)
 print("y2: ", y2)
 print("y3: ", y3)
+
+agg = tensor.sum()
+agg_item = agg.item()
+print(agg_item, type(agg_item))
+
+# Bridge with Numpy
+t = torch.ones(5)
+print(f"t: {t}")
+n = t.numpy()
+print(f"n: {n}")
+
+t.add_(1)
+print(f"t: {t}")
+print(f"n: {n}")
+
+n = np.ones(5)
+t = torch.from_numpy(n)
+
+np.add(n, 1, out=n)
+print(f"t: {t}")
+print(f"n: {n}")
